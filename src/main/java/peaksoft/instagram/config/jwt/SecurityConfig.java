@@ -23,7 +23,7 @@ import peaksoft.instagram.repository.UserRepo;
 @EnableWebSecurity
 @RequiredArgsConstructor
 
-public class    SecurityConfig {
+public class  SecurityConfig {
 
     private final UserRepo userRepo;
     private final JwtFilter jwtFilter;
@@ -40,7 +40,12 @@ public class    SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
+                                .requestMatchers(
+                                        "/api/auth/signUp",
+                                        "/api/auth/signIn",
+                                        "/api/auth/forgot-password",
+                                        "/api/auth/reset-password"
+                                ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

@@ -44,8 +44,6 @@ public class FollowerServiceImpl implements FollowerService {
     }
 
 
-
-
     @Override
     public SimpleResponse subscribe(Long currentUserId, Long profileUserId) {
         User currentuser = jwtService.checkAuthentication();

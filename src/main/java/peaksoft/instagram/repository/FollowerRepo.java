@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 import peaksoft.instagram.dto.follower.UserShortResponse;
 import peaksoft.instagram.dto.userDto.UserSearchResponse;
 import peaksoft.instagram.entity.Follower;
-import peaksoft.instagram.entity.User;
+
 
 import java.util.List;
 import java.util.Optional;

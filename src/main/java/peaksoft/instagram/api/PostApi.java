@@ -21,7 +21,6 @@ public class PostApi {
 
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public PostResponse createPost(@RequestBody @Valid PostRequest request) {
         return postService.create(request);
     }
@@ -45,4 +44,7 @@ public class PostApi {
     public List<PostResponse> getFeed() {
         return postService.getFeed();
     }
+
+
+
 }

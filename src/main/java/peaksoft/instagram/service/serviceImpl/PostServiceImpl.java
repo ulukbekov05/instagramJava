@@ -105,10 +105,11 @@ public class PostServiceImpl implements PostService {
     public List<PostResponse> getFeed() {
         User user = getCurrentUser();
         List<Post> posts = postRepo.getFeed(user.getId());
-
         return posts.stream()
                 .map(post -> mapToResponse(post, post.getImage(), post.getLike())).toList();
     }
+
+
 
     private PostResponse mapToResponse(Post post, Image image, Like like) {
         List<UserShortResponse> tagged = post.getTaggedUsers()
@@ -129,4 +130,6 @@ public class PostServiceImpl implements PostService {
                 tagged
         );
     }
+
+
 }

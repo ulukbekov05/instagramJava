@@ -12,7 +12,7 @@ public class UpdateUserRequest {
     @Email(message = "Email туура эмес форматта")
     @NotBlank(message = "Email бош болбосун")
     private String email;
-    @Pattern(regexp = "\\+996\\d{9}", message = "Телефон номери +996XXXXXXXXX форматта болушу керек")
+    @Pattern(regexp = "\\++996\\d{9}", message = "Телефон номери +996XXXXXXXXX форматта болушу керек")
     private String phoneNumber;
     @NotBlank(message = "Password бош болбосун")
     private String password;

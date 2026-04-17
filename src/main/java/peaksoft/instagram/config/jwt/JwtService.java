@@ -24,7 +24,6 @@ public class JwtService {
     @Value("${security.secret.key}")
     private String security;
 
-    // create token
     public String generateToken(User user){
         Algorithm algorithm=Algorithm.HMAC256(security);
 
@@ -37,7 +36,6 @@ public class JwtService {
 
     }
 
-    // check token
     public User verifyToken(String token){
         Algorithm algorithm = Algorithm.HMAC256(security);
         JWTVerifier verifier = JWT.require(algorithm).build();
@@ -47,6 +45,7 @@ public class JwtService {
                 ()-> new NoSuchElementException(String.format("User with email: %s doesn`t exists",email))
         );
     }
+
 
     public User checkAuthentication(){
         String email =  SecurityContextHolder.getContext().getAuthentication().getName();

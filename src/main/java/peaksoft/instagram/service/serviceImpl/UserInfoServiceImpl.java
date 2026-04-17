@@ -29,6 +29,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public SimpleResponse saveUserInfo(Long userId, UserInfoRequest userInfoRequest) {
         User currentUser = jwtService.checkAuthentication();
+
         User user = userRepo.findById(userId)
                 .orElseThrow(() -> new NoSuchElementException("User not found"));
         if (user.getUserInfo() != null) {
@@ -104,9 +105,10 @@ public class UserInfoServiceImpl implements UserInfoService {
         if (userInfo == null) {
             throw new NoSuchElementException("UserInfo not found");}
         if (!currentUser.equals(user)){
-            throw new BadCredentialsException("you  can not deleted");
+            throw new BadCredentialsException("you  can not delete");
         }
         user.setUserInfo(null);
+
         userInfoRepo.delete(userInfo);
         return SimpleResponse.builder()
                 .httpStatus(HttpStatus.OK)

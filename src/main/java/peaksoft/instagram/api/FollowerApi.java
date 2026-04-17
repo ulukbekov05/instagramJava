@@ -17,7 +17,7 @@ public class FollowerApi {
     private final FollowerService followerService;
 
     @GetMapping("/search")
-    public List<UserSearchResponse> search(@RequestParam String query) {
+        public List<UserSearchResponse> search(@RequestParam String query) {
         return followerService.searchUsers(query);
     }
 

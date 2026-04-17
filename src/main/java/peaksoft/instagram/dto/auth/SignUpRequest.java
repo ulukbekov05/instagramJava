@@ -5,12 +5,10 @@ import jakarta.validation.constraints.Pattern;
 
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import peaksoft.instagram.validation.Password;
 import peaksoft.instagram.validation.UserName;
 
-@AllArgsConstructor
 @Data
 public class SignUpRequest {
         @NotBlank(message = "Username бош болбосун")

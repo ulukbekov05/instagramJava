@@ -12,5 +12,5 @@ public class PostRequest {
     private String description;
     @NotBlank(message = "Сүрөт милдеттүү")
     private String imageURL;
-   private List<Long> taggedUserIds ;
+    private List<Long> taggedUserIds ;
 }
